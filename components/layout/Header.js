@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./layout.module.scss";
 import { GoLocation, GoSearch } from "react-icons/go";
 import { BiChevronDown } from "react-icons/bi";
 import { AiOutlineCaretDown } from "react-icons/ai";
