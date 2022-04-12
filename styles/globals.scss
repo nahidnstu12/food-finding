@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {
@@ -9,9 +12,16 @@ body {
   scroll-behavior: smooth;
 }
 
-.test{
-  color: violet;
-  padding: 1rem;
-  background-color: red;
+@layer utilities {
+  .max-width {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .absolute-center {
+    display: grid;
+    place-items: center;
+  }
+  .box-shadow{
+    box-shadow:#1c1c1c14 0px 2px 8px;
+  }
 }
-
