@@ -1,12 +1,16 @@
+import Delivary from "../components/sections/delivary/Index";
+import Dining from "../components/sections/dining/Index";
+import NightLife from "../components/sections/nightlife/Index";
+
 export const getCorrectScreen = (tabs) => {
   switch (tabs) {
     case "Delivary":
-      return <div>Delivary</div>;
+      return <Delivary />;
     case "Dining":
-      return <div>Dining</div>;
+      return <Dining />;
     case "NightLife":
-      return <div>NightLifer</div>;
+      return <NightLife />;
     default:
-      return <div>Delivary</div>;
+      return <Delivary />;
   }
 };

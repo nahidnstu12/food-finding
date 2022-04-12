@@ -18,9 +18,9 @@ export default function Home() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <Header />
-      {/* <TabOptions />
+      <TabOptions activeTab={activeTab} setActiveTab={setActiveTab} />
       {getCorrectScreen(activeTab)}
-      <Footer /> */}
+      {/* <Footer /> */}
     </div>
   );
 }

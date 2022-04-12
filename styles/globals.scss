@@ -18,10 +18,14 @@ body {
     margin: 0 auto;
   }
   .absolute-center {
-    display: grid;
+    display: flex;
     place-items: center;
+    justify-content: center;
   }
   .box-shadow{
     box-shadow:#1c1c1c14 0px 2px 8px;
+  }
+  .tab-options{
+    box-shadow: #e8e8e8 0px -0.5px 0px inset;
   }
 }

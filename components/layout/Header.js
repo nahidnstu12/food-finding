@@ -6,7 +6,7 @@ import { AiOutlineCaretDown } from "react-icons/ai";
 export default function Header() {
   return (
     <div className="flex h-16 w-full items-center mb-3 max-width">
-      <img src="/logo.png" className="mr-6 h-16 w-16 " />
+      <img src="/brand-logo.png" className="mr-6 h-16 w-16 " />
       {/* header right */}
       <div className="flex flex-1 justify-between items-center h-16">
         {/* search container */}
