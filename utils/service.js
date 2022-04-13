@@ -6,7 +6,7 @@ export const getCorrectScreen = (tabs) => {
   switch (tabs) {
     case "Delivary":
       return <Delivary />;
-    case "Dining":
+    case "DiningOut":
       return <Dining />;
     case "NightLife":
       return <NightLife />;
