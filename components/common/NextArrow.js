@@ -4,7 +4,7 @@ export default function NextArrow(props) {
    const { className, style, onClick } = props;
    return (
      <div
-       className={className}
+       className={`${className} shadow-md  `}
        style={{
          ...style,
          background: "white",

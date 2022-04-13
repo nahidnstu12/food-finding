@@ -29,15 +29,20 @@ export default function DelivaryCollection() {
 
 const DeliveryItem = ({ item }) => {
   return (
-    <div>
-      <div className="h-56 w-64 bg-white collection-shadow rounded-lg">
-        <img
-          src={item.cover}
-          className="h-full w-full object-cover rounded-lg"
-          alt={item.title}
-        />
+    <div className="">
+      <div className="relative">
+        <div
+          className="h-56 w-64 bg-white collection-shadow rounded-lg hover:shadow-xl cursor-pointer  bg-cover bg-center z-0"
+          style={{
+            backgroundImage:
+              `url('${item.cover}')`,
+          }}
+        >
+        </div>
+        <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 right-5 z-10 flex justify-center items-center  text-white font-semibold bg-gradient-to-t from-gray-700/60"></div>
       </div>
-      <div className="text-xl truncate mt-2 ">{item.title}</div>
+      <div className="text-xl truncate mt-2 text-center">{item.title}</div>
+    
     </div>
   );
 };

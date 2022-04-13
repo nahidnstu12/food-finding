@@ -19,7 +19,7 @@ export default function TopBrands() {
       <Slider {...settings}>
         {topBrandsList.map((brand) => (
           <div>
-            <div className="h-36 w-36 rounded-lg bg-white collection-shadow border border-solid border-zomato-border">
+            <div className="h-36 w-36 rounded-lg bg-white collection-shadow border border-solid border-zomato-border hover:shadow-2xl transition">
               <img
                 className="rounded-lg h-full w-full object-cover"
                 src={brand.cover}

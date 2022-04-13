@@ -6,7 +6,7 @@ export default function TabOptions({ activeTab, setActiveTab }) {
       <div className="flex max-width">
         {tabs.map((tab) => (
           <div
-            className={`mr-6 py-3 px-5 absolute-center cursor-pointer ${
+            className={`mr-6 py-3 px-5 absolute-center cursor-pointer transition duration-500 ease-linear ${
               activeTab === tab.name &&
               "border-b-2 border-solid border-zomato-primary"
             }`}

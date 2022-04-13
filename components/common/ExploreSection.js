@@ -36,17 +36,17 @@ const ExploreCard = ({ restaurant, i }) => {
       : null;
   return (
     <div
-      className={`mt-3 rounded-2xl border border-solid border-transparent ${
+      className={`mt-3 mb-8 rounded-2xl border border-solid border-transparent ${
         i < 3 ? "mt-3" : ""
       }`}
     >
-      <div className="h-60 w-[21rem] rounded-2xl relative">
+      <div className="h-60 w-[21rem] rounded-2xl relative  hover:scale-95 transition-all duration-200 ease-linear">
         <img
           src={coverImg}
           className="h-full w-full object-cover rounded-2xl"
           alt={restaurant.info.name}
         />
-        <div className="absolute right-3 bottom-3 bg-white/80 font-semibold text-xs pt-1 px-2 pb-1 rounded">
+        <div className="absolute right-3 bottom-3 bg-white/60 font-semibold text-xs pt-1 px-2 pb-1 rounded">
           {deliveryTime}
         </div>
         {proOff && (
@@ -88,18 +88,25 @@ const ExploreCard = ({ restaurant, i }) => {
             ))}
           </div>
         )}
-        {approxPrice && <div className="text-sm text-zomato-inactiveText">{approxPrice}</div>}
+        {approxPrice && (
+          <div className="text-sm text-zomato-inactiveText">{approxPrice}</div>
+        )}
       </div>
       {bottomContainers.length > 0 && (
         <div>
           <div className="h-px mt-2 mb-1 bg-zomato-border"></div>
           <div className="flex items-center min-w-full">
-            <img
-              src={bottomContainers[0]?.image?.url}
-              alt={bottomContainers[0]?.text}
-              style={{ height: "18px" }}
-            />
-            <div className="text-xs text-zomato-inactiveText truncate max-w-[200px] ml-2">{bottomContainers[0]?.text}</div>
+            <div className="h-5 w-5">
+              <img
+                src={bottomContainers[0]?.image?.url}
+                alt={bottomContainers[0]?.text}
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            <div className="text-xs text-zomato-inactiveText truncate max-w-[200px] ml-2">
+              {bottomContainers[0]?.text}
+            </div>
           </div>
         </div>
       )}

@@ -36,11 +36,17 @@ body {
     box-shadow: #e8e8e8 0px -0.5px 0px inset;
   }
 
-  .bg-gradient{
+  .gradient-bg{
     background:linear-gradient(0deg,
       rgba(0, 0, 0, 0.9) 0%,
       rgba(0, 0, 0, 0.05) 50%,
       rgba(0, 0, 0, 0.05) 85%);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      border-radius: 6px;
   }
   .heading {
     font-size: 30px;
@@ -52,7 +58,10 @@ body {
 }
 .slick-next::before,
 .slick-prev::before {
-  color: #cfcfcf;
+  color: #ccc;
   font-size: 30px;
   // box-shadow:#1c1c1c14 0px 2px 8px;
+}
+.slick-next{
+  right:-10px
 }

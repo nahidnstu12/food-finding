@@ -20,7 +20,7 @@ export default function Home() {
       <Header />
       <TabOptions activeTab={activeTab} setActiveTab={setActiveTab} />
       {getCorrectScreen(activeTab)}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
