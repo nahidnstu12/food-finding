@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from "react-slick"
 import { topBrandsList } from '../../../data/componentData';
+import ImageOptimized from '../../common/Image';
 import NextArrow from '../../common/NextArrow';
 import PrevArrow from '../../common/PrevArrow';
 
@@ -18,13 +19,14 @@ export default function TopBrands() {
       <div className="heading">Top brands for you</div>
       <Slider {...settings}>
         {topBrandsList.map((brand) => (
-          <div>
+          <div key={brand.id}>
             <div className="h-36 w-36 rounded-lg bg-white collection-shadow border border-solid border-zomato-border hover:shadow-2xl transition">
-              <img
-                className="rounded-lg h-full w-full object-cover"
-                src={brand.cover}
-                alt={brand.time}
+              <ImageOptimized
+                className={"rounded-lg h-full w-full object-cover"}
+                imgAlt={brand.time}
+                imgSrc={brand.cover}
               />
+              
             </div>
           </div>
         ))}

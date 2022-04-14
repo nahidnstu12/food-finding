@@ -19,7 +19,7 @@ export default function DelivaryCollection() {
         <div className="heading">Eat what makes you happy</div>
         <Slider {...settings}>
           {deliveryItems.map((item) => (
-            <DeliveryItem item={item} />
+            <DeliveryItem item={item} key={item.id}/>
           ))}
         </Slider>
       </div>
@@ -29,7 +29,7 @@ export default function DelivaryCollection() {
 
 const DeliveryItem = ({ item }) => {
   return (
-    <div className="">
+    <div>
       <div className="relative">
         <div
           className="h-56 w-64 bg-white collection-shadow rounded-lg hover:shadow-xl cursor-pointer  bg-cover bg-center z-0"
@@ -39,7 +39,7 @@ const DeliveryItem = ({ item }) => {
           }}
         >
         </div>
-        <div class="opacity-0 hover:opacity-100 duration-300 absolute inset-0 right-5 z-10 flex justify-center items-center  text-white font-semibold bg-gradient-to-t from-gray-700/60"></div>
+        <div className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 right-5 z-10 flex justify-center items-center  text-white font-semibold bg-gradient-to-t from-gray-700/60"></div>
       </div>
       <div className="text-xl truncate mt-2 text-center">{item.title}</div>
     

@@ -1,15 +1,66 @@
-import React from "react";
+import { useState, useEffect, useRef } from "react";
 import { AiOutlineStar } from "react-icons/ai";
+import ImageOptimized from "./Image";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { LoadingItems } from "./LoadingItems";
 
 export default function ExploreSection({ restaurants, sectionName }) {
+  const [hasMoreData, setHasMore] = useState(true);
+  const [restrurantsLists, setRestrurantsLists] = useState([]);
+  const [move, setMove] = useState({ val: 0 });
+  // const countRef = useRef(0);
+  // let move = 0;
+
+  const NUM_PER_PAGE = 6;
+  // console.log(restaurants.length)
+  useEffect(() => {
+    console.log("inside ",move.val);
+    if (move.val >= 1) fetchMoreData();
+  }, [move.val]);
+ 
+  const fetchMoreData = () => {
+    if (restrurantsLists.length >= 24) {
+      setHasMore(false);
+      return;
+    }
+
+    // next logic
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        let newRestrurants = restaurants.slice(
+          NUM_PER_PAGE * move.val,
+          NUM_PER_PAGE + NUM_PER_PAGE * move.val
+        );
+        setRestrurantsLists((prev) => [...prev, ...newRestrurants]);
+        setMove((mov) => ({...mov, val: mov.val + 1}));
+       
+        // console.log({ newRestrurants, move });
+        console.log("i am calling", move.val);
+        //  resolve({restrurantsLists, move});
+        resolve(restrurantsLists);
+      }, 1000);
+    });
+  };
+  
   return (
     <div className="max-width pt-8">
       <div className="heading">{sectionName}</div>
-      <div className="flex flex-wrap justify-between">
-        {restaurants.map((restaurant, i) => (
-          <ExploreCard restaurant={restaurant} i={i} />
-        ))}
-      </div>
+
+      <InfiniteScroll
+        dataLength={NUM_PER_PAGE}
+        next={fetchMoreData}
+        hasMore={hasMoreData}
+        loader={<LoadingItems />}
+      >
+        <div className="flex flex-wrap justify-between">
+          {restrurantsLists.length > 0 &&
+            restrurantsLists?.map((restaurant, i) => (
+              <ExploreCard restaurant={restaurant} i={i} key={i} />
+            ))}
+        </div>
+      </InfiniteScroll>
+
+      {/* </div> */}
     </div>
   );
 }
@@ -41,10 +92,10 @@ const ExploreCard = ({ restaurant, i }) => {
       }`}
     >
       <div className="h-60 w-[21rem] rounded-2xl relative  hover:scale-95 transition-all duration-200 ease-linear">
-        <img
-          src={coverImg}
-          className="h-full w-full object-cover rounded-2xl"
-          alt={restaurant.info.name}
+        <ImageOptimized
+          className={"h-full w-full object-cover rounded-2xl"}
+          imgSrc={coverImg}
+          imgAlt={restaurant?.info?.name}
         />
         <div className="absolute right-3 bottom-3 bg-white/60 font-semibold text-xs pt-1 px-2 pb-1 rounded">
           {deliveryTime}
@@ -78,12 +129,12 @@ const ExploreCard = ({ restaurant, i }) => {
         )}
       </div>
       <div className="flex justify-between pt-2 pb-1">
-        {cuisines.length && (
+        {cuisines?.length && (
           <div className="w-3/5 text-sm truncate">
             {cuisines.map((item, i) => (
-              <span className="mr-1 text-zomato-inactiveText">
+              <span className="mr-1 text-zomato-inactiveText" key={i}>
                 {item}
-                {i !== cuisines.length - 1 && ","}
+                {i !== cuisines?.length - 1 && ","}
               </span>
             ))}
           </div>
@@ -92,7 +143,7 @@ const ExploreCard = ({ restaurant, i }) => {
           <div className="text-sm text-zomato-inactiveText">{approxPrice}</div>
         )}
       </div>
-      {bottomContainers.length > 0 && (
+      {bottomContainers?.length > 0 && (
         <div>
           <div className="h-px mt-2 mb-1 bg-zomato-border"></div>
           <div className="flex items-center min-w-full">

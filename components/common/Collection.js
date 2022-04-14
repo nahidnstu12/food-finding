@@ -2,8 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import NextArrow from "./NextArrow";
 import PrevArrow from "./PrevArrow";
-
 import { BiChevronRight } from "react-icons/bi";
+import ImageOptimized from "./Image";
 
 const settings = {
   infinite: false,
@@ -32,10 +32,11 @@ const Collection = ({ list }) => {
           {list.map((item) => (
             <div key={item.id}>
               <div className="h-80 w-64 mr-5 rounded-md z-20 relative cursor-pointer group">
-                <img
-                  src={item.cover}
-                  alt={item.title}
-                  className="h-full w-full object-cover rounded-md"
+              
+                <ImageOptimized
+                  className={"h-full w-full object-cover rounded-md"}
+                  imgSrc={item.cover}
+                  imgAlt={item.title}
                 />
                 <div className="gradient-bg"></div>
                 <div className="absolute left-4 bottom-8 text-white text-lg font-medium group-hover:text-zomato-primary">

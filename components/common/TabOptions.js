@@ -17,7 +17,7 @@ export default function TabOptions({ activeTab, setActiveTab }) {
               className="h-16 w-16 rounded-full bg-zomato-inactive absolute-center"
               style={{
                 backgroundColor: `${
-                  activeTab === tab.name ? tab.backdrop : ""
+                  activeTab === tab.name ? tab.backdrop : null
                 }`,
               }}
             >

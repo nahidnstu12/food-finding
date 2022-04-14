@@ -2,11 +2,20 @@ import React from "react";
 import { GoLocation, GoSearch } from "react-icons/go";
 import { BiChevronDown } from "react-icons/bi";
 import { AiOutlineCaretDown } from "react-icons/ai";
+import ImageOptimized from "../common/Image";
+import logo from "../../public/logo.png";
+import user from "../../public/user.png";
 
 export default function Header() {
   return (
     <div className="flex h-16 w-full items-center mb-3 max-width">
-      <img src="/brand-logo.png" className="mr-6 h-14 w-14 " />
+     
+      <ImageOptimized
+        className={"mr-6 h-14 w-14"}
+        imgSrc={logo}
+        imgAlt={"website-logo"}
+      />
+
       {/* header right */}
       <div className="flex flex-1 justify-between items-center h-16">
         {/* search container */}
@@ -31,13 +40,18 @@ export default function Header() {
         </div>
         {/* profile container*/}
         <div className="flex justify-between w-[12%] items-center">
-          <img
+          {/* <img
             src="/user.png"
             alt="Profile"
             className="h-10 w-10 rounded-full object-cover"
+          /> */}
+          <ImageOptimized
+            className={"h-10 w-10 rounded-full object-cover"}
+            imgAlt={"User Profile"}
+            imgSrc={user}
           />
           <span className="text-base font-semibold">Nahid</span>
-          <BiChevronDown className="text-xl"/>
+          <BiChevronDown className="text-xl" />
         </div>
       </div>
     </div>
