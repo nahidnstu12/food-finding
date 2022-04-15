@@ -13,7 +13,7 @@ export default function Filters({ filterList }) {
 
 const FilterItem = ({ filter }) => {
   return (
-    <div className="p-2 flex bg-white text-zomato-filter border border-solid border-zomato-whiteGray rounded-lg  mt-3 mb-0 text-sm hover:shadow hover:bg-zomato-primary/30 cursor-pointer">
+    <div className="ml-2  p-2 flex bg-white text-zomato-filter border border-solid border-zomato-whiteGray rounded-lg  mt-3 mb-0 text-sm hover:shadow hover:bg-zomato-primary/30 cursor-pointer ">
       {!filter?.position && (
         <span className="text-base absolute-center">{filter?.icon}</span>
       )}

@@ -6,24 +6,18 @@ import ImageOptimized from "../common/Image";
 import logo from "../../public/logo.png";
 import user from "../../public/user.png";
 
-export default function Header() {
+export default function MobileHeader() {
   return (
-    <div className="flex h-16 w-full items-center mb-3 max-width">
-      <ImageOptimized
-        className={"mr-6 h-14 w-14"}
-        imgSrc={logo}
-        imgAlt={"website-logo"}
-      />
-
-      {/* header right */}
-      <div className="flex flex-1 justify-between items-center h-16">
-        {/* search container */}
-        <SearchContainer  />
-        {/* profile container*/}
-        <div className="flex justify-between w-[12%] items-center">
-         
+    <>
+      <div className="flex h-16 w-full items-center justify-between mb-3">
+        <ImageOptimized
+          className={"mr-6 h-14 w-14"}
+          imgSrc={logo}
+          imgAlt={"website-logo"}
+        />
+        <div className="flex justify-between items-center">
           <ImageOptimized
-            className={"h-10 w-10 rounded-full object-cover"}
+            className={"h-8 w-8 mr-2 rounded-full object-cover"}
             imgAlt={"User Profile"}
             imgSrc={user}
           />
@@ -31,15 +25,22 @@ export default function Header() {
           <BiChevronDown className="text-xl" />
         </div>
       </div>
-     
-    </div>
+
+      {/* header right */}
+      <div className="flex justify-between items-center h-16 ">
+        {/* search container */}
+        <SearchContainerForMbl />
+      </div>
+    </>
   );
 }
 
-const SearchContainer = () => {
+
+
+const SearchContainerForMbl = () => {
   return (
     <div
-      className={`items-center rounded-lg h-14 w-9/12 border border-solid  border-zomato-border box-shadow hidden sm:flex`}
+      className={`flex items-center rounded-lg h-14 w-full border border-solid  border-zomato-border box-shadow`}
     >
       {/* location */}
       <div className="flex flex-1 justify-between py-0 px-3">
@@ -61,5 +62,3 @@ const SearchContainer = () => {
     </div>
   );
 };
-
-

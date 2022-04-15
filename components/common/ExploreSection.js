@@ -52,7 +52,8 @@ export default function ExploreSection({ restaurants, sectionName }) {
         hasMore={hasMoreData}
         loader={<LoadingItems />}
       >
-        <div className="flex flex-wrap justify-between">
+        {/* flex flex-wrap justify-between w-52 max-w-[208px] */}
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
           {restrurantsLists.length > 0 &&
             restrurantsLists?.map((restaurant, i) => (
               <ExploreCard restaurant={restaurant} i={i} key={i} />
@@ -87,11 +88,11 @@ const ExploreCard = ({ restaurant, i }) => {
       : null;
   return (
     <div
-      className={`mt-3 mb-8 rounded-2xl border border-solid border-transparent ${
+      className={`mt-3 mb-2 sm:mb-8 rounded-2xl border border-solid border-transparent ${
         i < 3 ? "mt-3" : ""
       }`}
     >
-      <div className="h-60 w-[21rem] rounded-2xl relative  hover:scale-95 transition-all duration-200 ease-linear">
+      <div className="h-48  sm:h-60 sm:w-[21rem] rounded-2xl relative  hover:scale-95 transition-all duration-200 ease-linear">
         <ImageOptimized
           className={"h-full w-full object-cover rounded-2xl"}
           imgSrc={coverImg}
@@ -118,8 +119,8 @@ const ExploreCard = ({ restaurant, i }) => {
           </div>
         )}
       </div>
-      <div className="flex justify-between pt-2 pb-1">
-        <div className="max-w-[200px] truncate text-lg font-semibold text-zomato-heading">
+      <div className="flex items-center justify-between pt-2 pb-1">
+        <div className="w-2/5 sm:max-w-[200px] truncate text-lg font-semibold text-zomato-heading">
           {name}
         </div>
         {rating && (
@@ -128,9 +129,9 @@ const ExploreCard = ({ restaurant, i }) => {
           </div>
         )}
       </div>
-      <div className="flex justify-between pt-2 pb-1">
+      <div className=" sm:flexflex flex-col sm:flex-row justify-between pt-2 pb-1">
         {cuisines?.length && (
-          <div className="w-3/5 text-sm truncate">
+          <div className=" w-full sm:w-3/5 text-sm truncate">
             {cuisines.map((item, i) => (
               <span className="mr-1 text-zomato-inactiveText" key={i}>
                 {item}
@@ -146,8 +147,8 @@ const ExploreCard = ({ restaurant, i }) => {
       {bottomContainers?.length > 0 && (
         <div>
           <div className="h-px mt-2 mb-1 bg-zomato-border"></div>
-          <div className="flex items-center min-w-full">
-            <div className="h-5 w-5">
+          <div className="sm:flex  items-center min-w-full">
+            <div className="h-5 w-5 hidden sm:block">
               <img
                 src={bottomContainers[0]?.image?.url}
                 alt={bottomContainers[0]?.text}
@@ -155,7 +156,7 @@ const ExploreCard = ({ restaurant, i }) => {
               />
             </div>
 
-            <div className="text-xs text-zomato-inactiveText truncate max-w-[200px] ml-2">
+            <div className="text-xs text-zomato-inactiveText truncate max-w-[192px] sm:max-w-[200px] sm:ml-2 break-words">
               {bottomContainers[0]?.text}
             </div>
           </div>

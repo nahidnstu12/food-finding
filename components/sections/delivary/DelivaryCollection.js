@@ -10,6 +10,23 @@ const settings = {
   slidesToScroll: 1,
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
+  initialSlide: 0,
+  responsive: [
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 
 export default function DelivaryCollection() {
@@ -19,7 +36,7 @@ export default function DelivaryCollection() {
         <div className="heading">Eat what makes you happy</div>
         <Slider {...settings}>
           {deliveryItems.map((item) => (
-            <DeliveryItem item={item} key={item.id}/>
+            <DeliveryItem item={item} key={item.id} />
           ))}
         </Slider>
       </div>
@@ -32,17 +49,14 @@ const DeliveryItem = ({ item }) => {
     <div>
       <div className="relative">
         <div
-          className="h-56 w-64 bg-white collection-shadow rounded-lg hover:shadow-xl cursor-pointer  bg-cover bg-center z-0"
+          className="h-40 w-40  sm:h-56 sm:w-64 bg-white collection-shadow rounded-lg hover:shadow-xl cursor-pointer  bg-cover bg-center z-0"
           style={{
-            backgroundImage:
-              `url('${item.cover}')`,
+            backgroundImage: `url('${item.cover}')`,
           }}
-        >
-        </div>
+        ></div>
         <div className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 right-5 z-10 flex justify-center items-center  text-white font-semibold bg-gradient-to-t from-gray-700/60"></div>
       </div>
       <div className="text-xl truncate mt-2 text-center">{item.title}</div>
-    
     </div>
   );
 };

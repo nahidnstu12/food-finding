@@ -5,6 +5,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "376px",
+        // => @media (min-width: 576px) { ... }
+
+        sm: "640px",
+        // => @media (min-width: 960px) { ... }
+
+        // lg: "1440px",
+        // => @media (min-width: 1440px) { ... }
+      },
       colors: {
         zomato: {
           primary: "#ff7e8b",
@@ -22,7 +32,6 @@ module.exports = {
           border: "#e8e8e8",
         },
       },
-     
     },
   },
   plugins: [],

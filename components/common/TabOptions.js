@@ -3,10 +3,10 @@ import { tabs } from "../../data/componentData";
 export default function TabOptions({ activeTab, setActiveTab }) {
   return (
     <div className="tab-options pt-10">
-      <div className="flex max-width">
+      <div className="flex max-width px-4">
         {tabs.map((tab) => (
           <div
-            className={`mr-6 py-3 px-5 absolute-center cursor-pointer transition duration-500 ease-linear ${
+            className={`xs:mr-6 py-3 px-5 absolute-center cursor-pointer transition duration-500 ease-linear ${
               activeTab === tab.name &&
               "border-b-2 border-solid border-zomato-primary"
             }`}
@@ -28,7 +28,7 @@ export default function TabOptions({ activeTab, setActiveTab }) {
               />
             </div>
             <div
-              className={`text-xl font-normal ml-3 ${
+              className={`hidden md:block text-xl font-normal ml-3 ${
                 activeTab === tab.name && "text-zomato-primary"
               }`}
             >

@@ -8,10 +8,35 @@ import PrevArrow from '../../common/PrevArrow';
 const settings = {
   infinite: false,
   slidesToShow: 6,
-  slidesToScroll: 1,
+  slidesToScroll: 2,
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
+  initialSlide: 0,
+  responsive: [
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 440,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 380,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
+
 
 export default function TopBrands() {
   return (
@@ -20,7 +45,7 @@ export default function TopBrands() {
       <Slider {...settings}>
         {topBrandsList.map((brand) => (
           <div key={brand.id}>
-            <div className="h-36 w-36 rounded-lg bg-white collection-shadow border border-solid border-zomato-border hover:shadow-2xl transition">
+            <div className="h-28 w-28  sm:h-36 sm:w-36 rounded-lg bg-white collection-shadow border border-solid border-zomato-border hover:shadow-2xl transition">
               <ImageOptimized
                 className={"rounded-lg h-full w-full object-cover"}
                 imgAlt={brand.time}

@@ -9,7 +9,7 @@ const restaurantsList = restaurants;
 export default function Delivary() {
   return (
     <div>
-      <div className="max-width">
+      <div className="max-width " style={{padding:"0.5rem"}}>
         <Filters filterList={delivaryFilters} />
       </div>
       <DelivaryCollection />

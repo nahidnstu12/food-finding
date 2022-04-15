@@ -4,6 +4,7 @@ import TabOptions from "../components/common/TabOptions";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { getCorrectScreen } from "../utils/service";
+import MobileHeader from "../components/layout/MobileHeader";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("Delivary");
@@ -17,7 +18,13 @@ export default function Home() {
         />
         <link rel="icon" href="/logo.png" />
       </Head>
-      <Header />
+      <div className="hidden sm:block">
+        <Header />
+      </div>
+      <div className="sm:hidden max-width">
+        <MobileHeader />
+      </div>
+
       <TabOptions activeTab={activeTab} setActiveTab={setActiveTab} />
       {getCorrectScreen(activeTab)}
       <Footer />
