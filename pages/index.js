@@ -18,10 +18,10 @@ export default function Home() {
         />
         <link rel="icon" href="/logo.png" />
       </Head>
-      <div className="hidden sm:block">
+      <div className="hidden md:block">
         <Header />
       </div>
-      <div className="sm:hidden max-width">
+      <div className="md:hidden max-width">
         <MobileHeader />
       </div>
 

@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -6,14 +8,15 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        xs: "376px",
+        sm: "376px",
         // => @media (min-width: 576px) { ... }
 
-        sm: "640px",
+        md: "640px",
         // => @media (min-width: 960px) { ... }
 
         // lg: "1440px",
         // => @media (min-width: 1440px) { ... }
+        // ...defaultTheme.screens,
       },
       colors: {
         zomato: {

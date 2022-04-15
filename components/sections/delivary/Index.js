@@ -14,6 +14,7 @@ export default function Delivary() {
       </div>
       <DelivaryCollection />
       <TopBrands />
+     
       <ExploreSection
         restaurants={restaurantsList}
         sectionName="Delivery Restaurants in Bangalore"

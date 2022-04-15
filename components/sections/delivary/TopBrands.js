@@ -6,7 +6,7 @@ import NextArrow from '../../common/NextArrow';
 import PrevArrow from '../../common/PrevArrow';
 
 const settings = {
-  infinite: false,
+  infinite: true,
   slidesToShow: 6,
   slidesToScroll: 2,
   nextArrow: <NextArrow />,
@@ -23,7 +23,7 @@ const settings = {
     {
       breakpoint: 440,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 1,
       },
     },
@@ -45,7 +45,7 @@ export default function TopBrands() {
       <Slider {...settings}>
         {topBrandsList.map((brand) => (
           <div key={brand.id}>
-            <div className="h-28 w-28  sm:h-36 sm:w-36 rounded-lg bg-white collection-shadow border border-solid border-zomato-border hover:shadow-2xl transition">
+            <div className="h-28 w-28  md:h-36 md:w-36 rounded-lg bg-white collection-shadow border border-solid border-zomato-border hover:shadow-2xl transition">
               <ImageOptimized
                 className={"rounded-lg h-full w-full object-cover"}
                 imgAlt={brand.time}
