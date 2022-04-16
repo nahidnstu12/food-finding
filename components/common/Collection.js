@@ -23,6 +23,13 @@ const settings = {
     {
       breakpoint: 480,
       settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 375,
+      settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
       },
@@ -47,7 +54,7 @@ const Collection = ({ list }) => {
         <Slider {...settings}>
           {list.map((item) => (
             <div key={item.id}>
-              <div className="h-80 w-full sm:w-44  md:h-80 md:w-64 mr-5 rounded-md z-20 relative cursor-pointer group">
+              <div className="h-80 w-full sm:w-[98%]  md:h-80 md:w-64 mr-5 rounded-md z-20 relative cursor-pointer group">
                 <ImageOptimized
                   className={"h-full w-full object-cover rounded-md"}
                   imgSrc={item.cover}

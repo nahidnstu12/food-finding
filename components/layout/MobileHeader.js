@@ -53,9 +53,9 @@ const SearchContainerForMbl = () => {
       <div className="h-5 border border-zomato-whiteGray border-solid"></div>
       {/* search */}
       <div className="flex flex-[2]">
-        <GoSearch className="text-xl text-zomato-gray mx-3" />
+        {/* <GoSearch className="text-xl text-zomato-gray mx-3" /> */}
         <input
-          className="border-none outline-none w-3/5"
+          className="border-none outline-none w-3/5 mx-3"
           placeholder="Search for restaurant, cuisine or a dish"
         />
       </div>

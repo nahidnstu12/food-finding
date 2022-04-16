@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;700&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;700&display=swap");
 
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
@@ -21,11 +21,7 @@ body {
     max-width: 1100px;
     margin: 0 auto;
   }
-  .max-width-mbl{
-    min-width:400px;
-    margin: 0 auto;
-    // padding: 0 1.5rem;
-  }
+ 
   .absolute-center {
     display: flex;
     place-items: center;

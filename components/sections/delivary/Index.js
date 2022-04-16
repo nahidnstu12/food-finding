@@ -5,7 +5,7 @@ import Filters from "../../common/Filters";
 import DelivaryCollection from "./DelivaryCollection";
 import TopBrands from "./TopBrands";
 
-const restaurantsList = restaurants.slice(0,8);
+const restaurantsList = restaurants;
 export default function Delivary() {
   return (
     <div>

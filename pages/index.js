@@ -16,7 +16,7 @@ export default function Home() {
           name="description"
           content="Food Finding App, to find restrurant and their available food collection."
         />
-        <link rel="icon" href="/logo.png" />
+        <link rel="icon" href="/logo.png" />       
       </Head>
       <div className="hidden md:block">
         <Header />
