@@ -19,6 +19,7 @@
 
 - I collect data from zomato website for bangalore
 - Used reusable react component
+- respoonsive screen (340 - 540) & (>=1200)
 - react lazy loading
 - infinte scroll
 - I have to plan to design single page based on restrurant.
@@ -26,3 +27,5 @@
 ---
 ### Demo Image
 ![image info](/public/hom-delivary.png)
+
+![image info](/public/hom-delivary-mbl.png)

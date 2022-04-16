@@ -19,7 +19,7 @@ export default function ExploreSection({ restaurants, sectionName }) {
   }, [move.val]);
  
   const fetchMoreData = () => {
-    if (restrurantsLists.length >= 24) {
+    if (restrurantsLists.length >= 8) {
       setHasMore(false);
       return;
     }
