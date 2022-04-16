@@ -119,49 +119,53 @@ const ExploreCard = ({ restaurant, i }) => {
           </div>
         )}
       </div>
-      <div className="flex items-center justify-between pt-2 pb-1">
-        <div className="w-2/5 md:max-w-[200px] truncate text-lg font-semibold text-zomato-heading">
-          {name}
-        </div>
-        {rating && (
-          <div className="px-2 text-sm font-semibold text-white bg-zomato-tagGreen rounded-md h-6 absolute-center">
-            {rating} <AiOutlineStar className="absolute-center ml-1" />
+      <div className="md:w-[21rem]">
+        <div className="flex items-center justify-between pt-2 pb-1">
+          <div className="w-2/5 md:max-w-[200px] truncate text-lg font-semibold text-zomato-heading">
+            {name}
           </div>
-        )}
-      </div>
-      <div className=" md:flexflex flex-col md:flex-row justify-between pt-2 pb-1">
-        {cuisines?.length && (
-          <div className=" w-full md:w-3/5 text-sm truncate">
-            {cuisines.map((item, i) => (
-              <span className="mr-1 text-zomato-inactiveText" key={i}>
-                {item}
-                {i !== cuisines?.length - 1 && ","}
-              </span>
-            ))}
-          </div>
-        )}
-        {approxPrice && (
-          <div className="text-sm text-zomato-inactiveText">{approxPrice}</div>
-        )}
-      </div>
-      {bottomContainers?.length > 0 && (
-        <div>
-          <div className="h-px mt-2 mb-1 bg-zomato-border"></div>
-          <div className="sm:flex  items-center min-w-full">
-            <div className="h-5 w-5 hidden md:block">
-              <img
-                src={bottomContainers[0]?.image?.url}
-                alt={bottomContainers[0]?.text}
-                className="h-full w-full object-cover"
-              />
+          {rating && (
+            <div className="px-2 text-sm font-semibold text-white bg-zomato-tagGreen rounded-md h-6 absolute-center">
+              {rating} <AiOutlineStar className="absolute-center ml-1" />
             </div>
+          )}
+        </div>
+        <div className=" md:flexflex flex-col md:flex-row justify-between pt-2 pb-1">
+          {cuisines?.length && (
+            <div className=" w-full md:w-3/5 text-sm truncate">
+              {cuisines.map((item, i) => (
+                <span className="mr-1 text-zomato-inactiveText" key={i}>
+                  {item}
+                  {i !== cuisines?.length - 1 && ","}
+                </span>
+              ))}
+            </div>
+          )}
+          {approxPrice && (
+            <div className="text-sm text-zomato-inactiveText">
+              {approxPrice}
+            </div>
+          )}
+        </div>
+        {bottomContainers?.length > 0 && (
+          <div>
+            <div className="h-px mt-2 mb-1 bg-zomato-border"></div>
+            <div className="sm:flex  items-center min-w-full">
+              <div className="h-5 w-5 hidden md:block">
+                <img
+                  src={bottomContainers[0]?.image?.url}
+                  alt={bottomContainers[0]?.text}
+                  className="h-full w-full object-cover"
+                />
+              </div>
 
-            <div className="text-xs text-zomato-inactiveText truncate max-w-[192px] md:max-w-[200px] md:ml-2 break-words">
-              {bottomContainers[0]?.text}
+              <div className="text-xs text-zomato-inactiveText truncate max-w-[192px] md:max-w-[200px] md:ml-2 break-words">
+                {bottomContainers[0]?.text}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
