@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;700&display=swap");
+
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Nunito";
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .max-width {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .max-width-mbl{
+    min-width:400px;
+    margin: 0 auto;
+    // padding: 0 1.5rem;
+  }
+  .absolute-center {
+    display: flex;
+    place-items: center;
+    justify-content: center;
+  }
+  .box-shadow{
+    box-shadow:#1c1c1c14 0px 2px 8px;
+  }
+  .collection-shadow{
+    box-shadow:#00000014 0px 3px 12px;
+  }
+  .tab-options{
+    box-shadow: #e8e8e8 0px -0.5px 0px inset;
+  }
+
+  .gradient-bg{
+    background:linear-gradient(0deg,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.05) 50%,
+      rgba(0, 0, 0, 0.05) 85%);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      border-radius: 6px;
+  }
+  .heading {
+    font-size: 30px;
+    color: #1c1c1c;;
+    margin-bottom: 32px;
+    font-weight: 500;
+  }
+  @media screen and (max-width: 640px) {
+    .heading{
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .max-width {
+      max-width:100%;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .slick-next {
+      right: 30px
+    }
+  }
+  @media screen and (max-width: 640px) {
+.heading {
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+}
+  }
+}
+
+// 
+.slick-next::before,
+.slick-prev::before {
+  color: #ccc;
+  font-size: 30px;
+  // box-shadow:#1c1c1c14 0px 2px 8px;
+}
+
+.slick-next {
+  right: -10px
+}
+
+@media screen and (max-width: 640px) {
+  .slick-next {
+    right: 20px
+  }
+}
