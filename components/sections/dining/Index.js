@@ -3,8 +3,6 @@ import { dining } from "../../../data/dining";
 import Collection from "../../common/Collection";
 import ExploreSection from "../../common/ExploreSection";
 import Filters from "../../common/Filters";
-const diningList = dining;
-
 
 export default function Dining() {
   return (
@@ -14,7 +12,7 @@ export default function Dining() {
         <Filters filterList={diningFilters} />
       </div>
       <ExploreSection
-        restaurants={diningList}
+        node={"dining"}
         sectionName="Dine-Out Restaurants in Bangalore"
       />
     </div>

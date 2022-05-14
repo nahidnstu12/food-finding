@@ -1,67 +1,38 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import ImageOptimized from "./Image";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { LoadingItems } from "./LoadingItems";
+import useResturantsList from "../hooks/useResturantsList";
 
-export default function ExploreSection({ restaurants, sectionName }) {
-  const [hasMoreData, setHasMore] = useState(true);
-  const [restrurantsLists, setRestrurantsLists] = useState([]);
-  const [move, setMove] = useState({ val: 0 });
-  // const countRef = useRef(0);
-  // let move = 0;
+export default function ExploreSection({ sectionName, node }) {
+  const [page, setPage] = useState(0);
+  const { loading, error, resturants, hasMore } = useResturantsList(page, node);
 
-  const NUM_PER_PAGE = 6;
-  // console.log(restaurants.length)
-  useEffect(() => {
-    console.log("inside ",move.val);
-    if (move.val >= 1) fetchMoreData();
-  }, [move.val]);
- 
-  const fetchMoreData = () => {
-    if (restrurantsLists.length >= 24) {
-      setHasMore(false);
-      return;
-    }
-
-    // next logic
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        let newRestrurants = restaurants.slice(
-          NUM_PER_PAGE * move.val,
-          NUM_PER_PAGE + NUM_PER_PAGE * move.val
-        );
-        setRestrurantsLists((prev) => [...prev, ...newRestrurants]);
-        setMove((mov) => ({...mov, val: mov.val + 1}));
-       
-        // console.log({ newRestrurants, move });
-        console.log("i am calling", move.val);
-        //  resolve({restrurantsLists, move});
-        resolve(restrurantsLists);
-      }, 1000);
-    });
-  };
-  
   return (
     <div className="max-width pt-8">
       <div className="heading">{sectionName}</div>
-
-      <InfiniteScroll
-        dataLength={NUM_PER_PAGE}
-        next={fetchMoreData}
-        hasMore={hasMoreData}
-        loader={<LoadingItems />}
-      >
-        {/* flex flex-wrap justify-between w-52 max-w-[208px] */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4">
-          {restrurantsLists.length > 0 &&
-            restrurantsLists?.map((restaurant, i) => (
-              <ExploreCard restaurant={restaurant} i={i} key={i} />
-            ))}
-        </div>
-      </InfiniteScroll>
+      {resturants.length > 0 && (
+        <InfiniteScroll
+          dataLength={resturants.length}
+          next={() => setPage((prev) => prev + 8)}
+          hasMore={hasMore}
+          loader={<LoadingItems />}
+        >
+          {/* flex flex-wrap justify-between w-52 max-w-[208px] */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4">
+            {resturants.length > 0 &&
+              resturants?.map((restaurant, i) => (
+                <ExploreCard restaurant={restaurant} i={i} key={i} />
+              ))}
+          </div>
+        </InfiniteScroll>
+      )}
 
       {/* </div> */}
+      {!loading && resturants.length === 0 && <div>No data found!</div>}
+      {error && <div>There was an error!</div>}
+      {loading && <div>Loading...</div>}
     </div>
   );
 }
