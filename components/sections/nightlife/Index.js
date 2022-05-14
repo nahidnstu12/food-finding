@@ -4,7 +4,6 @@ import Collection from "../../common/Collection";
 import ExploreSection from "../../common/ExploreSection";
 import Filters from "../../common/Filters";
 
-const nightLifeList = nightLife;
 export default function NightLife() {
   return (
     <div>
@@ -13,7 +12,7 @@ export default function NightLife() {
         <Filters filterList={nightFilters} />
       </div>
       <ExploreSection
-        restaurants={nightLifeList}
+        node={"nightlife"}
         sectionName="Nightlife Restaurants in Bangalore"
       />
     </div>
