@@ -4,7 +4,7 @@
 
 ## Project Status
 
-Project is: _completed_
+Project is: _prototype_completed_
 
 ---
 
@@ -12,7 +12,7 @@ Project is: _completed_
 - NextJS
 - Tailwind CSS
 - React-slick
-- Firebase realtime database
+
 
 ---
 ### Features
@@ -26,7 +26,6 @@ Project is: _completed_
 ### Higlights
 
 - I collect data from zomato website for bangalore
-- Data fetched from firebase realtime database
 - Used reusable react component
 - respoonsive screen (340 - 540) & (>=1200)
 - react lazy loading
@@ -34,6 +33,13 @@ Project is: _completed_
 
 Todo: 
 - I have to plan to design single page based on restrurant.
+
+### Phase 2
+
+I have researched the backend options for this project, and considering the short time frame, I have decided to use Express.js as the backend framework along with MySQL as the database. 
+
+With this approach, we can start by developing the backend using Express.js and MySQL. Once the backend is up and running, we can seamlessly integrate it with the existing frontend part of the project.
+
 
 ---
 ### Demo Image
