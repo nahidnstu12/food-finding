@@ -1,28 +1,71 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import ImageOptimized from "./Image";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { LoadingItems } from "./LoadingItems";
-import useResturantsList from "../hooks/useResturantsList";
+import {restaurants as restaurantsLists} from "../../data/restaurants";
+import {dining} from "../../data/dining";
+import {nightLife} from "../../data/nightLife";
 
+
+const PAGE_LIMIT = 6;
+const SET_PAGE = 2;
+const restaurantsMap = {
+  dining: dining,
+  restaurants: restaurantsLists,
+  nightlife: nightLife,
+};
 export default function ExploreSection({ sectionName, node }) {
-  const [page, setPage] = useState(0);
-  const { loading, error, resturants, hasMore } = useResturantsList(page, node);
+  const [page, setPage] = useState(SET_PAGE);
+  const [loading, setLoading] = useState(false);
+  const [restaurants, setRestaurants] = useState(restaurantsLists);
+  const [displayedRestaurants, setDisplayedRestaurants] = useState([]);
+
+  useEffect(() => {
+
+    const selectedRestaurants = restaurantsMap[node] || restaurantsLists;
+    setRestaurants(selectedRestaurants);
+    const firstLoadData = selectedRestaurants?.slice(0, PAGE_LIMIT);
+    setDisplayedRestaurants(firstLoadData);
+
+  }, []);
+
+
+  const fetchRestaurants = () => {
+    // Simulate API call with a delay of 1000 milliseconds
+    setLoading(true);
+    setTimeout(() => {
+      const perPage = PAGE_LIMIT;
+      const startIndex = (page - 1) * perPage;
+      const endIndex = startIndex + perPage;
+
+      const newDisplayedRestaurants = restaurants.slice(startIndex, endIndex);
+
+      setDisplayedRestaurants((prevDisplayedRestaurants) => [
+        ...prevDisplayedRestaurants,
+        ...newDisplayedRestaurants,
+      ]);
+      setPage((prevPage) => prevPage + 1);
+    }, 1000);
+    setLoading(false)
+  };
+
+  console.log("newDisplayedRestaurants", restaurants, displayedRestaurants)
 
   return (
     <div className="max-width pt-8">
       <div className="heading">{sectionName}</div>
-      {resturants.length > 0 && (
+      {displayedRestaurants.length > 0 && (
         <InfiniteScroll
-          dataLength={resturants.length}
-          next={() => setPage((prev) => prev + 8)}
-          hasMore={hasMore}
+          dataLength={displayedRestaurants.length}
+          next={()=>fetchRestaurants()}
+          hasMore={displayedRestaurants.length < restaurants.length }
           loader={<LoadingItems />}
         >
           {/* flex flex-wrap justify-between w-52 max-w-[208px] */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4">
-            {resturants.length > 0 &&
-              resturants?.map((restaurant, i) => (
+            {displayedRestaurants.length > 0 &&
+                displayedRestaurants?.map((restaurant, i) => (
                 <ExploreCard restaurant={restaurant} i={i} key={i} />
               ))}
           </div>
@@ -30,8 +73,8 @@ export default function ExploreSection({ sectionName, node }) {
       )}
 
       {/* </div> */}
-      {!loading && resturants.length === 0 && <div>No data found!</div>}
-      {error && <div>There was an error!</div>}
+      {!loading && displayedRestaurants.length === 0 && <div>No data found!</div>}
+      {/*{error && <div>There was an error!</div>}*/}
       {loading && <div>Loading...</div>}
     </div>
   );
